@@ -55,6 +55,8 @@ $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
 
+//echo "<pre>". print_r($response, true) ."</pre>";
+
 $response->send();
 
 $kernel->terminate($request, $response);
