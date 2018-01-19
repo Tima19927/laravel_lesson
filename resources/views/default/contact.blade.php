@@ -1,6 +1,9 @@
 @extends ('default.layouts.layouts')
 
 @section( 'content' )
+    <pre>
+        {{ print_r(\Illuminate\Support\Facades\Session::all(),true)}}
+    </pre>
 
     <h2>Contact Us</h2>
 
@@ -8,20 +11,20 @@
         <div class="form-group">
             <label for="inputEmail" class="col-xs-2 control-label">Адрес email:</label>
             <div class="col-xs-10">
-                <input type="text" name="name" class="form-control" id="inputEmail1" placeholder="Введите имя">
+                <input type="text" name="name" class="form-control" id="inputEmail1" value="{{old('name')}}" placeholder="Введите имя">
             </div>
         </div>
 
         <div class="form-group">
             <label for="inputPassword" class="col-xs-2 control-label">Пароль:</label>
             <div class="col-xs-10">
-                <input type="text" name="email" class="form-control" id="inputPassword" placeholder="Введите фамилию">
+                <input type="text" name="email" class="form-control" id="inputPassword" value="{{old('email')}}"   placeholder="Введите фамилию">
             </div>
         </div>
         <div class="form-group">
         <label for="inputPassword" class="col-xs-2 control-label">Сообщение:</label>
         <div class="col-xs-10">
-            <textarea name="message" class="form-control"  placeholder="Введите сообщение" id="message" cols="30" rows="10"></textarea>
+            <textarea name="message" class="form-control"  placeholder="Введите сообщение" value="{{old('message')}}" id="message" cols="30" rows="10"></textarea>
         </div>
         </div>
 

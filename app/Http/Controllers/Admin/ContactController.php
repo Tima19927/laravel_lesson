@@ -13,11 +13,11 @@ class ContactController extends Controller
 //		$this->request = $request;
 //	}
 
-	public function show(Request $request, $id=null) {
+	public function show(Request $request, $id = null) {
 
 //		echo '<h3>'. $id. '</h3>';
 
-//    	echo '<pre>'.print_r($request->input('name', 'Default'), true).'</pre> ' ;
+//    	echo '<pre>'.print_r($request->input('name', 'Default '), true).'</pre> ' ;
 //		echo '<pre>'.print_r($request->get('name'), true).'</pre> ' ;
 //		if( $request->has('name') ){
 //			echo '<pre>'.print_r($request->all(), true).'</pre> ' ;
@@ -29,10 +29,20 @@ class ContactController extends Controller
 //		}
 //    	echo '<pre>'.print_r($request->has('name'), true).'</pre> ' ;
 
-echo $request->url() ."<br/>";
-echo $request->fullUrl() ."<br/>";
+		echo $request->url() ."<br/>";
+		echo $request->fullUrl() ."<br/>";
+
 		if( $request->is('contact/*')){
 			echo $request->path();
+		}
+
+		if( $request->isMethod('post') ){
+			///
+			/// validation
+			///
+			///
+			$request->flash();
+
 		}
 
     	if( view()->exists('default.contact') ){
