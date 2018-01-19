@@ -15,10 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',
 	[
 		'as'=>'home',
-
-		function () {
-	        return view('welcome');
-		}
+		'uses'=>'Admin\IndexController@show'
 	]
 );
 
@@ -31,22 +28,20 @@ Route::get(
 );
 
 Route::get(
-	'article/{page}',
+	'article/{id}',
 	[
 		'uses' => 'Admin\Core@getArticle',
-		'as'   => 'articles',
-		'middleware' => 'mymiddle'
+		'as'   => 'article'
 	]
 
 );
 
-//Route::resource('/pages', 'Admin\CoreResource');
-//Route::controller('/pages','PagesController');
-
-
-
-
-
+Route::get('/about/',
+	[
+		'uses' => 'Admin\AboutController@show',
+		'as'=>'about'
+	]
+);
 
 
 
