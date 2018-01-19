@@ -10,20 +10,33 @@ class IndexController extends Controller
     //
 	public function show() {
 			//		Передача параметров  1 способ
-		$data = ['title'=>'Laravel 5'];
+		$data = [
+			'title'=>'Laravel Project',
+			'data' => [
+				'one'   => 'List 1',
+				'two'   => 'List 2',
+				'three' => 'List 3',
+				'four'  => 'List 4',
+				'five'  => 'List 5'
+			],
+			'dataI' => [
+				'List 1',
+				'List 2',
+				'List 3',
+				'List 4',
+				'List 5',
+			],
+			'bvar' => true,
+			'script' => '<script>alert("Hello")</script>'
+		];
 
-		if( view()->exists('default.template')){
-//			view()->name('default.template', 'myview');
-//			view()->of('myview')->withTitlr();
 
-
-			view('default.template', ['title'=>'Test']);
-
-
-//			return view('default.template', $data );
+		if( view()->exists('default.index')){
+			view('default.index', ['title'=>'Test']);
+			return view('default.index', $data );
 		}
 		else {
-			abort(404);
+//			abort(404);
 		}
 
 

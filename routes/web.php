@@ -44,6 +44,18 @@ Route::get('/about/',
 );
 
 
+Route::match(
+	[
+		'get',
+		'post'
+	],
+	'/contact/{name?}',
+	[
+		'uses' => 'Admin\ContactController@show',
+		'as'   => 'contact'
+	]
+);
+
 
 
 

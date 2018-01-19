@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 class AboutController extends Controller
 {
     public function show() {
-
+		if ( view()->exists('default.about') ){
+			return view('default.about')->withTitle('About');
+		}else{
+			abort(404);
+		}
     }
 }
